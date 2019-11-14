@@ -305,7 +305,7 @@ class Array5D(JsonSerializable):
             for channel in self.channels():
                 raw = self.raw(Point5D.SPATIAL_LABELS)
                 labeled = skimage.measure.label(raw, background=background, connectivity=connectivity)
-                yield ScalarImage(labeled, Point5D.SPATIAL_LABELS)
+                yield ScalarImage(labeled, axiskeys=Point5D.SPATIAL_LABELS, location=self.location)
 
 
 class StaticData(Array5D):
